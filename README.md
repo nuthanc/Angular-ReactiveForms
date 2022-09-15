@@ -89,7 +89,7 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
 
 ### Form Directives and imports
 
-* Template-driven(FormsModule)
+* Template-Driven(FormsModule)
   * ngForm: Automatically assigned by Angular when it detects a form
     * Angular creates a Form Model starting with the Root FormGroup instance and automatically binds it to the form
     * If we want to access form model, export ngForm directive into a template reference variable(#signUpForm="ngForm")
@@ -106,3 +106,19 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
   * formControlName
   * formGroupName
   * formArrayName
+
+### Template Syntax for Forms
+
+* ngSubmit to call a method after Submit
+
+![tdForm](img/tdForm.png)
+* Template-Driven Forms
+  * input element has validation attributes like minlength and required
+  * 2 way data binding(using ngModel) and name attribute in input element
+  * Template reference variable to check for errors and apply styling classes
+
+![rForm](img/rForm.png)
+* Reactive Forms
+  * formGroup directive in form and attach to Form Model instance created in the class
+  * formControlName in input
+  * Validation attributes not present(as it is done in Class)
