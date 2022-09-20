@@ -49,7 +49,7 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
   * errors: Array containing Validation errors
     * Key of each Array element is the name of the Validation rule associated with the Error
 * Visited
-  * touched: Visited an input element
+  * touched: Visited an input element and then left the Input element
     * User has set focus into the Input and then left the Input element
     * A Form is touched if any input element has been touched
   * untouched
@@ -122,3 +122,30 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
   * formGroup directive in form and attach to Form Model instance created in the class
   * formControlName in input
   * Validation attributes not present(as it is done in Class)
+
+### Template-driven Form: Template
+
+* Check customer.component.html in demo-start-v12
+* card, card-body, form-group row mb-2, form-control, is-invalid, invalid-feedback classes are from Bootstrap
+* novalidate for disabling Browser validation
+* signupForm is the Form Model reference and is passed to save method on Submit
+* firstNameVar.dirty for showing the Validation error as the User types
+* The errors collection would have the names of the validation rules as key(required and minlength) when there are errors
+* is-invalid class for Red border
+* is-invalid style class also updates the invalid-feedback for any sibling elements from display: none to display: block
+
+### Template-driven Form: Component
+
+* Check customer.component.ts in demo-start-v12
+* Properties for binding
+* Methods for getting and saving data
+
+### Complex Scenarios
+
+* Template-driven gets quite complex for the below and Reactive Form is preferred
+* Scenarios
+  * Dynamically add input elements
+  * Watch what the user types
+  * Wait validation until typing stops
+  * Different validation for different situations
+  * Immutable data structures
