@@ -149,3 +149,27 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
   * Wait validation until typing stops
   * Different validation for different situations
   * Immutable data structures
+
+### Reactive Form Component Class
+
+* Form Model
+  * Root FormGroup
+  * FormControl for each input element(not necessarily for all)
+  * Nested FormGroups as desired
+  * FormArrays
+* Import FormGroup in Component class and initialize it in ngOnInit
+  * Note this is not done in Constructor because we want Component and Template to be initialized before building the Form Model
+* FormGroup parameter is an object of FormControls
+```ts
+ngOnInit(): void {
+  this.customerForm = new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    email: new FormControl(),
+    sendCatalog: new FormControl(true) // Default value
+  })
+}
+```
+* We are gonna bind this FormGroup to the form in the template
+* Form model defines the set of FormGroups and FormControls that match up with the HTML Form and Input elements
+* Data model is what we are gonna send or receive from Backend
