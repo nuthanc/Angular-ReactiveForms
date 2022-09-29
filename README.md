@@ -9,7 +9,7 @@ Materials for my Pluralsight course: ["Angular Reactive Forms"](https://app.plur
 
 Angular v12 turns strict typing on by default. Angular forms is not very strongly typed, so some changes are required to support strict typing. Use these files if you are using Angular v12 or newer or if you turn on strict typing.
 
-`demo-start-v12`: The starter files updated to Angular v12.
+`demo-start-v12`: The starter files updated to Angular v12. I have made changes here
 
 `demo-final-v12`: The completed files updated to Angular v12.
 
@@ -125,7 +125,7 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
 
 ### Template-driven Form: Template
 
-* Check customer.component.html in demo-start-v12
+* Check customer.component.html in Demo-Start
 * card, card-body, form-group row mb-2, form-control, is-invalid, invalid-feedback classes are from Bootstrap
 * novalidate for disabling Browser validation
 * signupForm is the Form Model reference and is passed to save method on Submit
@@ -136,7 +136,7 @@ Please see the `CHANGELOG.md` for the most recent changes to this repo.
 
 ### Template-driven Form: Component
 
-* Check customer.component.ts in demo-start-v12
+* Check customer.component.ts in Demo-Start
 * Properties for binding
 * Methods for getting and saving data
 
@@ -173,3 +173,28 @@ ngOnInit(): void {
 * We are gonna bind this FormGroup to the form in the template
 * Form model defines the set of FormGroups and FormControls that match up with the HTML Form and Input elements
 * Data model is what we are gonna send or receive from Backend
+
+### Binding to the Template
+
+* Check my changes in demo-start-v12 customer Component
+* After creating the root FormGroup in the Component, bind it to the form with formGroup directive
+  * For binding use property binding(i.e [])
+* For tracking the input elements, use formControlName directive and the control name(as string)
+* Accessing the Form Model Properties(For Styling, Display of Validation Error messages and other purposes)
+  * Navigating through Form Model hierarchy
+    * customerForm.controls.firstName.valid
+  * Using FormGroup's get method
+    * customerForm.get('firstName').valid
+  * Separate property in the Component class
+    * firstName = new FormControl();
+    * this.customerForm = new FormGroup({firstName: this.firstName}, ...)
+    * Then directly access firstName in the template
+* Delete ngModel directive, name attribute, template reference variable
+* Use formGroup and formControlName directives
+* Replace template reference variable with customerForm.get('X')
+
+### Using setValue and patchValue
+
+* setValue: For setting the value for all the Form Controls
+  * We get an Error if we don't provide for all the Form Controls
+* patchValue: For setting the value for a subset of Form Controls
