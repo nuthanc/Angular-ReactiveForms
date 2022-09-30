@@ -198,3 +198,18 @@ ngOnInit(): void {
 * setValue: For setting the value for all the Form Controls
   * We get an Error if we don't provide for all the Form Controls
 * patchValue: For setting the value for a subset of Form Controls
+
+### Simpliying with FormBuilder
+
+* Using FormBuilder simplies creation of the Form Model
+* We no longer need to create to a new instance of FormGroup
+* Instead we can inject FormBuilder and use its group method to create a Form Model
+* The group method takes a Configuration object whose keys are the Control names and the value is the default value
+* The value can be provided directly or using object or an Array
+* When value is an Object
+  * value key for the default value given directly before
+  * disabled for making the input disabled or not
+  * Making it disabled will not make it appear in the value property
+* When value is an Array
+  * The first item is the default value or the Object with value and disabled
+  * Following it is the Validation rules
