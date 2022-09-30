@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Customer } from './customer';
 
@@ -22,10 +22,11 @@ export class CustomerComponent implements OnInit {
     //   sendCatalog: new FormControl(true),
     // });
     this.customerForm = this.fb.group({
-      firstName: '',
-      // lastName: '',
-      lastName: { value: 'n/a', disabled: true },
-      email: '',
+      // firstName: '',
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      // lastName: { value: 'n/a', disabled: true },
+      lastName: ['', [Validators.required, Validators.maxLength(50)]],
+      email: ['', [Validators.required, Validators.email]],
       sendCatalog: true,
     });
   }

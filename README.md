@@ -213,3 +213,16 @@ ngOnInit(): void {
 * When value is an Array
   * The first item is the default value or the Object with value and disabled
   * Following it is the Validation rules
+
+### Setting Built-in Validation Rules
+
+* In the group method's object, for the values, we provide an Array whose 1st entry is the value, 2nd entry is a single Validation rule or list of Validation rules and the 3rd entry is the Async Validators
+* Async Validators for Asynchrounous validation like calling a Server side validation method
+* Async Validators don't run until all synchronous validators pass validation
+```ts
+this.customerForm = this.fb.group({
+  firstName: ['', [Validators.required, Validators.minLength(3)]],
+  lastName: ['', Validators.required],
+  sendCatalog: true
+})
+```
