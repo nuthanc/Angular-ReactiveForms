@@ -226,3 +226,11 @@ this.customerForm = this.fb.group({
   sendCatalog: true
 })
 ```
+
+### Adjusting Validation Rules at Runtime
+
+* myControl.setValidators(Validators.required);
+* myControl.setValidators([Validators.required, Validators.maxLength(30)])
+* myControl.clearValidators()
+* But setValidators doesn't re-evaluate the Validators, so we need to call the below
+* myControl.updateValueAndValidity()

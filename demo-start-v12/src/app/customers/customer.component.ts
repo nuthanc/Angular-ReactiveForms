@@ -27,6 +27,7 @@ export class CustomerComponent implements OnInit {
       // lastName: { value: 'n/a', disabled: true },
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
+      phone: [''],
       sendCatalog: true,
     });
   }
